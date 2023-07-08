@@ -1,0 +1,309 @@
+💡 Q1. Write a simple Banking System program using OOPs concept where you can get account holder name, balance, etc.?
+
+Here's a simple example of a banking system program in Java using OOPs concepts:
+
+class BankAccount {
+    private String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountHolderName, double balance) {
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class BankingSystem {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("John Doe", 1000.0);
+        System.out.println("Account Holder Name: " + account.getAccountHolderName());
+        System.out.println("Balance: " + account.getBalance());
+    }
+}
+The BankAccount class represents a bank account with an account holder name and balance. The constructor initializes the account holder name and balance. The getAccountHolderName() and getBalance() methods allow accessing the account holder name and balance, respectively.
+
+In the BankingSystem class, we create an instance of the BankAccount class and print the account holder name and balance.
+
+Output:
+Account Holder Name: John Doe
+Balance: 1000.0
+💡 Q2. Write a program where you inherit a method from a parent class and show method overriding concept?
+
+Here's an example program that demonstrates method overriding in Java:
+class Parent {
+    public void display() {
+        System.out.println("Parent class display method");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void display() {
+        System.out.println("Child class display method");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        parent.display();
+
+        Child child = new Child();
+        child.display();
+
+        Parent parentChild = new Child();
+        parentChild.display();
+    }
+}
+In this example, the Parent class has a display() method, and the Child class extends the Parent class and overrides the display() method.
+
+In the main() method, we create instances of both the Parent and Child classes. When we invoke the display() method on each object, the appropriate overridden method is called based on the actual object type at runtime.
+
+Output:
+Parent class display method
+Child class display method
+Child class display method
+💡 Q3. Write a program to show runtime polymorphism in Java?
+
+Here's an example program that demonstrates runtime polymorphism in Java:
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat is meowing");
+    }
+}
+
+public class RuntimePolymorphismExample {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound();
+
+        Animal dog = new Dog();
+        dog.makeSound();
+
+        Animal cat = new Cat();
+        cat.makeSound();
+    }
+}
+In this example, we have a base class Animal and two derived classes Dog and Cat. The Animal class has a makeSound() method, which is overridden in the derived classes.
+
+In the main() method, we create objects of the Animal, Dog, and Cat classes. When we invoke the makeSound() method on each object, the appropriate overridden method is called based on the actual object type at runtime.
+
+Output:
+Animal is making a sound
+Dog is barking
+Cat is meowing
+💡 Q4. Write a program to show compile-time polymorphism in Java?
+
+Compile-time polymorphism in Java is achieved using method overloading. Here's an example program:
+
+java
+Copy code
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class CompileTimePolymorphismExample {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        int result1 = calculator.add(5, 10);
+        System.out.println("Result 1: " + result1);
+
+        double result2 = calculator.add(2.5, 3.5);
+        System.out.println("Result 2: " + result2);
+    }
+}
+In this example, the Calculator class has two add() methods. One method accepts two int parameters, and the other method accepts two double parameters. The methods have the same name but different parameter types.
+
+In the main() method, we create an instance of the Calculator class and invoke the add() method with different sets of arguments. The appropriate overloaded method is called based on the number and types of arguments at compile-time.
+
+Output:
+Result 1: 15
+Result 2: 6.0
+💡 Q5. Achieve loose coupling in Java by using OOPs concept?
+
+In Java, loose coupling can be achieved by following object-oriented programming principles such as encapsulation, inheritance, and composition. Here's an example that demonstrates loose coupling using composition:
+
+class Engine {
+    public void start() {
+        System.out.println("Engine started");
+    }
+}
+
+class Car {
+    private Engine engine;
+
+    public Car() {
+        this.engine = new Engine();
+    }
+
+    public void startCar() {
+        engine.start();
+    }
+}
+
+public class LooseCouplingExample {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.startCar();
+    }
+}
+In this example, the Car class has a startCar() method that depends on the Engine class to start the car. The Car class has a composition relationship with the Engine class.
+
+By encapsulating the Engine object within the Car class and providing a method to interact with it (startCar()), we achieve loose coupling. The Car class does not directly create an Engine object but relies on it for starting the car.
+
+Loose coupling allows for flexibility and modularity in the code, as the Car class is not tightly dependent on the details of the Engine class implementation. If the Engine class changes or a different type of engine is used, the Car class remains unaffected.
+
+💡 Q6. What is the benefit of encapsulation in Java?
+
+Encapsulation is a fundamental concept in object-oriented programming, and it provides the following benefits in Java:
+
+Data Hiding: Encapsulation allows hiding the internal details and implementation of a class. The internal state of an object is kept private, and access to it is controlled through public methods. This prevents direct manipulation of the object's data, ensuring data integrity and security.
+
+Modularity andReusability: Encapsulation helps in creating modular and reusable code. By encapsulating the internal implementation details within a class, changes made to the implementation do not affect other parts of the program. This allows for easier maintenance, troubleshooting, and updating of code.
+
+Code Organization: Encapsulation promotes a clean and organized code structure. By grouping related data and behavior into classes, encapsulation improves code readability and understandability. It also facilitates collaboration among team members working on different components of a project.
+
+Access Control: Encapsulation allows controlling the access to the internal state of an object. By using access modifiers such as private, protected, and public, the visibility and accessibility of class members can be defined. This ensures that only the necessary and intended interactions with the object are allowed, preventing unauthorized modifications.
+
+Code Flexibility and Adaptability: Encapsulation provides a level of abstraction, allowing changes to be made to the internal implementation of a class without affecting the external code that uses the class. This improves code flexibility, adaptability, and the ability to incorporate new features or enhancements without breaking existing code.
+
+Overall, encapsulation enhances code maintainability, reusability, security, and flexibility by encapsulating related data and behavior within classes and controlling access to them. It promotes good programming practices and helps in creating robust and scalable applications.
+
+💡 Q7. Is Java a 100% Object-Oriented Programming language? If no, why?
+
+No, Java is not considered a 100% Object-Oriented Programming (OOP) language. Although Java is primarily object-oriented, it includes some non-object-oriented elements. Here are a few reasons why Java is not considered 100% pure OOP:
+
+Primitive Data Types: Java includes primitive data types such as int, char, boolean, etc., which are not objects. These types do not have methods or inheritance and do not adhere to all OOP principles.
+
+Static Members: Java allows the declaration of static variables and methods, which are associated with a class rather than an instance of the class. Static members can be accessed without creating an object, which deviates from the fundamental principle of objects interacting with each other.
+
+Procedural Programming: Java supports procedural programming paradigms through static methods and procedural-style coding. Procedural programming focuses on procedures or functions rather than objects.
+
+Despite these non-object-oriented elements, Java is predominantly an object-oriented programming language. It provides support for classes, objects, inheritance, polymorphism, encapsulation, and other essential features of OOP. Java's object-oriented nature allows for modular and reusable code, promotes code organization, and facilitates the development of complex applications.
+
+💡 Q8. What are the advantages of abstraction in Java?
+
+Abstraction is a fundamental concept in object-oriented programming that allows for the creation of abstract classes and interfaces. Here are some advantages of abstraction in Java:
+
+Simplifies Complexity: Abstraction helps in managing complexity by focusing on the essential features of an entity and hiding unnecessary details. It allows developers to deal with high-level concepts and ignore low-level implementation specifics. This simplification makes the code easier to understand and maintain.
+
+Provides Modularity: Abstraction facilitates modularity by defining a clear separation between the interface and implementation. It allows different components of a system to be developed independently and communicate through well-defined interfaces. This modularity promotes code reusability and flexibility.
+
+Enhances Code Maintainability: Abstraction improves code maintainability by reducing dependencies and coupling between different parts of a system. Changes made to the implementation of an abstract entity do not affect other components that use it. This reduces the impact of changes and makes it easier to update and evolve the codebase.
+
+Enables Polymorphism: Abstraction enables polymorphism, a key feature of object-oriented programming. Polymorphism allows objects of different types to be treated as objects of a common abstract type. This promotes code flexibility and extensibility, as new classes can be added without modifying existing code that relies on the abstraction.
+
+Promotes Code Extensibility: Abstraction allows new functionality to be added to a system by extending or implementing abstract classes or interfaces. This promotes code extensibility without modifying existing code, ensuring backward compatibility and minimizing the risk of introducing bugs.
+
+Abstraction, along with other OOP principles, helps in creating robust, modular, and scalable applications. It allows developers to focus on the essential aspects of a system, promotes code reuse, and enables easier maintenance and evolution of the codebase.
+
+💡 Q9. What is abstraction explained with an example?
+
+Abstraction is a concept in object-oriented programming that focuses on defining high-level concepts and hiding unnecessary details. It allows us to create abstract classes and interfaces that define common characteristics and behavior for a group of related objects.
+
+Here's an example to explain abstraction:
+abstract class Animal {
+    public abstract void makeSound();
+
+    public void sleep() {
+        System.out.println("Animal is sleeping");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat is meowing");
+    }
+}
+
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound();
+        dog.sleep();
+
+        Animal cat = new Cat();
+        cat.makeSound();
+        cat.sleep();
+    }
+}
+In this example, the Animal class is an abstract class that defines the abstract method makeSound() and the concrete method sleep(). The makeSound() method is abstract, meaning it does not have an implementation in the abstractclass. The Dog and Cat classes extend the Animal class and provide their own implementations of the makeSound() method.
+
+In the main() method, we create instances of the Dog and Cat classes but refer to them using the Animal type. We can call the makeSound() method on the Animal objects, and the appropriate implementation from the subclass is invoked based on the actual object type.
+
+Output:
+Dog is barking
+Animal is sleeping
+Cat is meowing
+Animal is sleeping
+The abstract class Animal serves as a common abstraction for different types of animals. It defines the high-level concept of making a sound but leaves the specific implementation to the subclasses. This abstraction allows us to work with animals in a generic way without needing to know the exact implementation details of each subclass.
+
+💡 Q10. What is the final class in Java?
+
+In Java, a final class is a class that cannot be subclassed or extended by other classes. It is the opposite of an abstract class, which is designed to be extended by other classes. Once a class is declared as final, it cannot be subclassed, and any attempts to inherit from it will result in a compilation error.
+
+The final modifier can be applied to a class using the following syntax:
+final class ClassName {
+    // Class members and methods
+}
+A final class may be used in scenarios where the design decision is to prevent any further extension or modification of the class. This is often done to ensure that the class behavior or implementation remains intact and cannot be altered.
+
+Here's an example of a final class:
+
+java
+Copy code
+final class Circle {
+    private final double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+In this example, the Circle class is declared as final. This means that no other class can extend or subclass the Circle class. The class has a private radius field and a calculateArea() method to calculate the area of the circle.
+
+Using final classes can provide advantages such as improved performance (as the class cannot be overridden and certain optimizations can be applied) and ensuring class immutability and consistency in certain scenarios.
+
+
+
+
