@@ -1,0 +1,138 @@
+💡 Q1. What is the difference between Compiler and Interpreter?
+
+Compiler:
+
+A compiler is a program that translates the entire source code of a program into machine code before execution.
+It analyzes the entire program, checks for errors, and translates it into an executable form.
+The resulting machine code can be executed directly by the computer's processor without the need for the original source code.
+Examples of compiled programming languages include C, C++, and Java (which is compiled into bytecode before execution on the Java Virtual Machine).
+Interpreter:
+
+An interpreter is a program that processes and executes code line by line at runtime.
+It reads and executes the source code directly without the need for a separate compilation step.
+The interpreter analyzes each line of code, translates it into machine code or bytecode, and executes it immediately.
+Interpreted languages include Python, JavaScript, and Ruby.
+In summary, the main difference between a compiler and an interpreter is that a compiler translates the entire source code into machine code before execution, while an interpreter translates and executes code line by line at runtime without creating a separate executable.
+
+💡 Q2. What is the difference between JDK, JRE, and JVM?
+
+JDK (Java Development Kit):
+
+JDK is a software development kit that provides tools and libraries necessary for developing Java applications.
+It includes the Java compiler (javac) for compiling Java source code into bytecode, along with other development tools like debuggers and documentation generators.
+JDK is required for writing and compiling Java code.
+JRE (Java Runtime Environment):
+
+JRE is a software package that provides the necessary runtime environment for executing Java applications.
+It includes the Java Virtual Machine (JVM) and core libraries required to run Java programs.
+JRE is needed to run Java applications but does not include the tools for development.
+JVM (Java Virtual Machine):
+
+JVM is a virtual machine that provides the runtime environment for executing Java bytecode.
+It is responsible for translating bytecode into machine-specific instructions that can be understood and executed by the host operating system.
+JVM is part of both JDK and JRE.
+In summary, JDK is used for Java development and includes the necessary tools for compiling and developing Java applications. JRE is used for running Java applications and includes the runtime environment. JVM is the virtual machine responsible for executing Java bytecode.
+
+💡 Q3. How many types of memory areas are allocated by JVM?
+
+The Java Virtual Machine (JVM) allocates memory into several different areas, each serving a specific purpose:
+
+Heap Memory: It is the runtime data area where objects are allocated. It is shared among all threads in the application and managed by the garbage collector.
+
+Method Area (PermGen/Metaspace): It stores class structures, method bytecode, constant pool, and other static data. In Java 7 and earlier, it was known as PermGen (Permanent Generation). In Java 8 and later, it has been replaced by Metaspace.
+
+JVM Stacks: Each thread in a Java application has its own JVM stack, which holds method frames and local variables. It stores data related to method invocations and is used for method call and parameter passing.
+
+Native Method Stacks: Similar to JVM stacks, but used for native methods written in languages like C or C++. They hold data related to native method invocations.
+
+PC Registers: Each thread has its own program counter (PC) register, which keeps track of the current executing instruction.
+
+Runtime Constant Pool: It is a per-class or per-interface constant pool that contains symbolic references used by the class.
+
+Direct Memory: Memory allocated outside of the JVM heap, often used for I/O operations or by libraries that need direct access to memory.
+
+These memory areas work together to support the execution of Java programs and manage the allocation and deallocation of resources.
+
+💡 Q4. What is JIT compiler?
+
+JIT (Just-In-Time) compiler is a part of the Java Virtual Machine (JVM) that dynamically compiles bytecode into machine code during runtime. It improves the performance of Java applications by combining the benefits of both interpretation and compilation.
+
+When a Java program is executed, the JVM initially interprets the bytecode line by line. However, to enhance performance, the JIT compiler identifies sections of code (hotspots) that are frequently executed. It then compiles these hotspots into highly optimized machine code, which can be executed directly by the processor.
+
+The advantages of JIT compilation include:
+
+Faster execution: The compiled machine code is more efficient than interpreting bytecode, resulting in faster execution of hotspots.
+Adaptive optimization: The JIT compiler can make runtime optimizations based on actual program behavior, such as inlining methods or removing unnecessary branches.
+Reduced memory footprint: Since only the hotspots are compiled, the overall memory usage is reduced compared to compiling the entire program upfront.
+The JIT compiler plays a crucial role in achieving the balance between performance and flexibility in Java applications.
+
+💡 Q5. What are the various access specifiers in Java?
+
+In Java, access specifiers are keywords used to define the accessibility of classes, methods, variables, and constructors. There are four access specifiers:
+
+Public: The public specifier allows unrestricted access from any other class or package. Classes, methods, variables, and constructors marked as public can be accessed from anywhere.
+
+Private: The private specifier restricts access to only within the same class. Private members cannot be accessed from outside the class, even by subclasses or other classes in the same package.
+
+Protected: The protected specifier allows access within the same package and subclasses, even if they are in different packages. Protected members are not accessible to unrelated classes in different packages.
+
+Default (No specifier): If no access specifier is specified, it is considered as the default access level. Default access allows access within the same package but restricts access from classes in different packages.
+
+These access specifiers help in controlling the visibility and accessibility of classes, methods, variables, and constructors in Java.
+  💡 Q6. What is a compiler in Java?
+
+In Java, a compiler is a program that translates human-readable Java source code into a machine-readable form called bytecode. The compiler analyzes the source code, checks for syntax errors, and converts it into a lower-level representation that can be executed by the Java Virtual Machine (JVM). The Java compiler is typically invoked using the javac command and produces bytecode files with a .class extension. These bytecode files can then be executed by the JVM.
+
+💡 Q7. Explain the types of variables in Java?
+
+In Java, there are three types of variables:
+
+Local Variables: These variables are declared and used within a block, method, or constructor. They have a limited scope and are only accessible within the block where they are declared. Local variables must be initialized before use.
+
+Instance Variables (Non-static Variables): Instance variables are declared within a class but outside any method. They hold values specific to each instance (object) of the class. Each instance of the class has its own copy of instance variables. Instance variables are initialized with default values if not explicitly initialized.
+
+Class Variables (Static Variables): Class variables are declared with the static keyword and are shared among all instances of a class. They are stored in memory and accessed by all objects of the class. Class variables are initialized with default values if not explicitly initialized.
+
+💡 Q8. What are the Datatypes in Java?
+
+Java provides several built-in datatypes to represent different types of data. The datatypes in Java can be categorized as follows:
+
+Primitive Data Types:
+
+Numeric Types: byte, short, int, long, float, double
+Character Type: char
+Boolean Type: boolean
+Reference Data Types:
+
+Class Types: Any class created by the user or provided by Java libraries.
+Array Types: Arrays that can hold multiple values of the same type.
+
+  💡 Q9. What are the identifiers in Java?
+
+In Java, an identifier is a name given to a variable, class, method, or other programming elements. Here are some rules for defining identifiers in Java:
+
+The first character must be a letter, underscore (_), or dollar sign ($).
+Subsequent characters can be letters, digits, underscores, or dollar signs.
+Java is case-sensitive, so myVariable and myvariable are considered different identifiers.
+Identifiers cannot be a reserved keyword.
+Examples of valid identifiers: myVariable, _count, $total, myMethod.
+
+💡 Q10. Explain the architecture of JVM
+
+The architecture of the Java Virtual Machine (JVM) consists of several components:
+
+Class Loader: The class loader loads Java class files into the memory of the JVM. It is responsible for locating, loading, and verifying classes before they are executed.
+
+Execution Engine: The execution engine interprets the bytecode or compiles it into native machine code. It includes the interpreter and the Just-In-Time (JIT) compiler, which dynamically compiles hotspots of bytecode into optimized machine code for better performance.
+
+Memory Management: The memory management component manages the allocation and deallocation of memory in the JVM. It includes the Heap, Method Area, and Garbage Collector. The Garbage Collector automatically frees up memory by reclaiming objects that are no longer referenced.
+
+Runtime Data Areas:
+
+Heap: The heap is the runtime data area where objects are allocated. It is shared among all threads and managed by the garbage collector.
+Method Area: The method area stores class structures, method bytecode, constant pool, and other static data.
+JVM Stacks: Each thread in a Java application has its own JVM stack, which holds method frames and local variables.
+Native Method Stacks: Similar to JVM stacks, but used for native methods written in languages like C or C++.
+PC Registers: Each thread has its own program counter (PC) register, which keeps track of the current executing instruction.
+Runtime Constant Pool: It is a per-class or per-interface constant pool that contains symbolic references used by the class.
+The JVM architecture provides a platform-independent execution environment for Java programs. It allows Java bytecode to be executed on any operating system or hardware platform that has a compatible JVM implementation.
