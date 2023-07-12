@@ -1,0 +1,151 @@
+💡 **Q1. What is the Spring Framework?**
+
+The Spring Framework is an open-source Java framework that provides comprehensive infrastructure support for developing Java applications. It offers a lightweight and modular approach to building enterprise-grade applications, making it one of the most popular frameworks for Java development.
+
+💡 **Q2. What are the features of the Spring Framework?**
+
+Some key features of the Spring Framework are:
+
+1. **Inversion of Control (IoC) Container**: The Spring Framework implements the IoC principle, allowing objects to be loosely coupled and managed by the framework. It promotes modular and reusable code by reducing the dependency on concrete implementations.
+
+2. **Dependency Injection (DI)**: Spring facilitates DI, where the dependencies of an object are injected by the framework rather than being created and managed by the object itself. DI promotes loose coupling, testability, and easier configuration.
+
+3. **Aspect-Oriented Programming (AOP)**: Spring provides AOP capabilities for implementing cross-cutting concerns, such as logging, transaction management, and security. AOP allows developers to modularize these concerns and apply them to multiple objects in a declarative manner.
+
+4. **Spring MVC**: Spring includes a robust Model-View-Controller (MVC) framework for building web applications. It provides features like request handling, flexible data binding, validation, and integration with view technologies like JSP, Thymeleaf, or HTML templates.
+
+5. **Data Access**: Spring offers comprehensive support for data access and integration with databases, including JDBC, ORM frameworks (Hibernate, JPA), and NoSQL databases. It provides consistent and simplified data access APIs and transaction management.
+
+6. **Transaction Management**: Spring provides a consistent programming model for declarative transaction management across various transaction APIs, including Java Transaction API (JTA), JDBC, and ORM frameworks. It simplifies transaction handling and ensures data consistency.
+
+7. **Security**: Spring offers extensive support for implementing security features, including authentication, authorization, and secure communication. It integrates with popular security frameworks and provides flexible configurations for securing applications.
+
+8. **Testing**: Spring provides testing support, including integration testing, unit testing, and mocking. It offers tools and utilities for writing testable code and supports integration with testing frameworks like JUnit and Mockito.
+
+💡 **Q3. What is a Spring configuration file?**
+
+A Spring configuration file, often named `applicationContext.xml`, is an XML file used to define the configuration for the Spring framework and the beans (objects) managed by the framework. It specifies the beans, their dependencies, and other configuration details required by the Spring container.
+
+The configuration file contains XML elements that define the beans, their properties, and the relationships between them. It can also include additional configuration details like database connections, transaction management, AOP aspects, and more.
+
+The Spring configuration file serves as a central configuration point for the application, allowing developers to wire dependencies, configure aspects, and define other runtime behaviors. It provides flexibility and separation of concerns by externalizing the configuration from the application code.
+
+💡 **Q4. What do you mean by IoC Container?**
+
+In the Spring Framework, the IoC (Inversion of Control) container is responsible for managing the creation, configuration, and lifecycle of objects (beans). It is a core component of the framework that implements the principle of IoC.
+
+The IoC container in Spring promotes loose coupling by taking control of creating and managing the objects and their dependencies. Instead of objects creating and managing their dependencies, the container injects the dependencies into the objects, thereby inverting the control.
+
+The IoC container achieves this by using Dependency Injection (DI), where objects are dependent on interfaces or abstractions rather than concrete implementations. The container configures the objects and resolves their dependencies, allowing for easier testing, reusability, and maintainability of code.
+
+The Spring IoC container comes in different flavors, such as the `BeanFactory` and `ApplicationContext`. These containers provide various features, including configuration management, dependency resolution, lifecycle management, and more.
+
+💡 **Q5. What do you understand by Dependency Injection?**
+
+Dependency Injection (DI) is a design pattern and a core concept in the Spring Framework. It is a process of injecting dependencies (other objects or values) into an object, rather than the object creating or managing its dependencies itself.
+
+With DI, the responsibility of managing dependencies is transferred to an external entity, such as the Spring IoC container. The dependencies are defined in the configuration file or through annotations, and the container takes care of injecting them into the objects.
+
+DI promotes loose coupling between objects, as objects rely on interfaces or abstractions rather than concrete implementations. It improves code maintainability, testability, and flexibility, as dependencies can be easily replaced or modified without affecting the object's code.
+
+Spring supports DI through various mechanisms, including constructor injection, setter injection, and field injection. It allows developers to choose the appropriate injection approach based on their requirements and design preferences.
+
+💡 **Q6. Explain the difference between constructor and setter injection?**
+
+Constructor Injection and Setter Injection are two approaches to implement Dependency Injection in Spring:
+
+- **Constructor Injection**: In Constructor Injection, dependencies are provided through the object's constructor. The container resolves the dependencies and passes them to the constructor when creating the object. Once injected, the dependencies are immutable and cannot be changed.
+
+Example of Constructor Injection:
+
+
+public class MyClass {
+    private Dependency dependency;
+
+    public MyClass(Dependency dependency) {
+        this.dependency = dependency;
+    }
+}
+```
+
+- **Setter Injection**: In Setter Injection, dependencies are provided through setter methods of the object. The container calls the setter methods after creating the object and sets the dependencies. Setter Injection allows for optional dependencies and flexibility to change dependencies later.
+
+Example of Setter Injection:
+
+
+public class MyClass {
+    private Dependency dependency;
+
+    public void setDependency(Dependency dependency) {
+        this.dependency = dependency;
+    }
+}
+```
+
+
+
+The choice between constructor and setter injection depends on factors such as the nature of the dependency, whether it is mandatory or optional, and the desired flexibility for changing dependencies. Constructor Injection is preferred for mandatory dependencies, while Setter Injection is suitable for optional dependencies or when dependencies need to be changed dynamically.
+
+💡 **Q7. What are Spring Beans?**
+
+In the Spring Framework, a Spring Bean is an object that is instantiated, assembled, and managed by the Spring IoC container. It is a core component of the Spring framework and represents the building blocks of an application.
+
+Spring Beans are Java objects that are configured and wired together in the Spring configuration file or through annotations. They are created as managed objects by the container and are eligible for dependency injection and other services provided by the container.
+
+Spring Beans can have various scopes, such as singleton, prototype, request, session, etc., which define the lifecycle and visibility of the bean within the application context.
+
+By using Spring Beans, developers can leverage the benefits of dependency injection, loose coupling, and modular design offered by the Spring Framework.
+
+💡 **Q8. What are the bean scopes available in Spring?**
+
+Spring provides several bean scopes that define the lifecycle and visibility of Spring Beans:
+
+- **Singleton**: The default scope in Spring. A singleton bean is created once per container and is shared across multiple requests or injections. All references to a singleton bean point to the same object instance.
+
+- **Prototype**: A new instance of the bean is created every time it is requested from the container. Prototype beans are not shared, and each request for the bean results in a new instance.
+
+- **Request**: A new instance of the bean is created for each HTTP request in a web application. The bean is available within the scope of the current HTTP request and is destroyed once the request is complete.
+
+- **Session**: A new instance of the bean is created for each user session in a web application. The bean is available within the scope of the user session and is destroyed when the session expires or is invalidated.
+
+- **Global Session**: Similar to the session scope, but applicable in a portlet context. The bean is available within the scope of the global session and is destroyed when the global session ends.
+
+- **Application**: The bean is scoped to the lifecycle of a ServletContext in a web application. It is created and destroyed once per application context.
+
+- **Websocket**: The bean is scoped to the lifecycle of a WebSocket in a web application. It is created and destroyed once per WebSocket connection.
+
+💡 **Q9. What is Autowiring, and name the different modes of it?**
+
+Autowiring is a feature provided by the Spring Framework that allows automatic resolution of dependencies between Spring Beans. With Autowiring, the Spring container automatically injects the dependencies into the dependent beans without requiring explicit configuration.
+
+Spring provides several Autowiring modes:
+
+- **ByType**: The container autowires a bean if there is exactly one bean of the same type in the container. If multiple beans of the same type exist, it raises an exception.
+
+- **ByName**: The container autowires a bean if there is a bean with the same name as the dependency. The name of the bean matches the name of the setter method or field where Autowiring is applied.
+
+- **Constructor**: The container autowires dependencies by matching the constructor arguments with beans of the same type in the container.
+
+- **No**: Autowiring is disabled. Dependencies must be explicitly wired using annotations or XML configurations.
+
+- **AutoDetect**: The container autowires by type if there is exactly one bean of the same type, and by name if there is a bean with the same name. If multiple beans of the same type exist, it raises an exception.
+
+The Autowiring mode can be specified at the class level or individual fields/setter methods using annotations or XML configurations.
+
+💡 **Q10. Explain the Bean lifecycle in the Spring Bean Factory Container.**
+
+In the Spring Framework, the lifecycle of a Spring Bean in the Bean Factory Container consists of several stages:
+
+1. **Instantiation**: The container creates an instance of the bean using the bean's constructor or a factory method specified in the configuration.
+
+2. **Population of Dependencies**: The container sets the dependencies of the bean using the configured injection mechanism, such as constructor injection or setter injection.
+
+3. **Bean Post-Processing**: The container applies any registered BeanPostProcessors to modify the bean instance before it is fully initialized.
+
+4. **Initialization**: The container invokes the `init` methods (if any) defined in the bean, allowing the bean to perform initialization tasks.
+
+5. **Bean Ready for Use**: The fully initialized bean is now ready for use by the application.
+
+6. **Destruction**: If the bean implements the `DisposableBean` interface or defines custom destroy methods, the container calls those methods to release resources held by the bean.
+
+The Spring framework manages these lifecycle stages automatically, allowing developers to focus on writing business logic rather than dealing with low-level bean creation and destruction. Developers can also define custom initialization and destruction methods to handle additional setup or cleanup tasks specific to their beans.
